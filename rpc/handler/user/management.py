@@ -1,10 +1,10 @@
-from rpc.gen.akun.akun import TAkunService
+from rpc.gen.user.management.services import TUserManagementService
+from rpc.gen.user.user.types.ttypes import TUserRole
+
 from models import get_model
-from rpc.gen.akun.auth.ttypes import TAuthError, TAuthErrorCode, TUserRole
-from rpc.gen.akun.user.ttypes import TUser, TUserError, TUserErrorCode
 from converter.user import DBUser_TUser
 
-class TAkunServiceHandler(TAkunService.Iface):
+class TUserManagementServiceHandler(TUserManagementService.Iface):
     def __init__(self):
         self.auth_model = get_model('auth')
         self.user_model = get_model('user')

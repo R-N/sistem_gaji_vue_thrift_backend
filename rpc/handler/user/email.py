@@ -1,11 +1,12 @@
-from rpc.gen.akun.email import TEmailService
-from models import get_model
-from rpc.gen.akun.auth.ttypes import TAuthError, TAuthErrorCode, TLoginResult, TUserRole
-from rpc.gen.akun.email.ttypes import TEmailError, TEmailErrorCode
-from converter.user import DBUser_TUser
 from flask import request
 
-class TEmailServiceHandler(TEmailService.Iface):
+from rpc.gen.user.email.services import TUserEmailService
+from rpc.gen.user.email.errors.ttypes import TEmailError, TEmailErrorCode
+
+from models import get_model
+from converter.user import DBUser_TUser
+
+class TUserEmailServiceHandler(TUserEmailService.Iface):
     def __init__(self):
         self.auth_model = get_model('auth')
         self.user_model = get_model('user')
@@ -47,3 +48,4 @@ class TEmailServiceHandler(TEmailService.Iface):
             password_payload['email_secret_2'],
             password
         )
+        

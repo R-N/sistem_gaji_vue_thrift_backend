@@ -1,10 +1,13 @@
-from rpc.gen.akun.user import TUserService
-from models import get_model
-from rpc.gen.akun.auth.ttypes import TAuthError, TAuthErrorCode, TLoginResult, TUserRole
-from converter.user import DBUser_TUser
 from flask import request
 
-class TUserServiceHandler(TUserService.Iface):
+from rpc.gen.user.profile.services import TUserProfileService
+from rpc.gen.user.auth.structs.ttypes import TLoginResult
+from rpc.gen.user.user.types.ttypes import TUserRole
+
+from models import get_model
+from converter.user import DBUser_TUser
+
+class TUserProfileServiceHandler(TUserProfileService.Iface):
     def __init__(self):
         self.auth_model = get_model('auth')
         self.user_model = get_model('user')
