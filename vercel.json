@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
       {
-        "src": "main/wsgi.py",
+        "src": "wsgi.py",
         "use": "@vercel/python",
         "config": {
           "excludeFiles": "/{.next,.cache,node_modules,.git,__pycache__}/**",
@@ -10,12 +10,19 @@
           "analytics": true,
           "report": true
         }
+      },
+      {
+          "src": "build.sh",
+          "use":"@vercel/static",
+          "config":{
+              "distDir": "certs"
+          }
       }
     ],
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "main/wsgi.py"
+        "dest": "wsgi.py"
       }
     ]
   }
