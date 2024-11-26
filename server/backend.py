@@ -73,7 +73,7 @@ BACKEND_HTTPS = bool(os.getenv("BACKEND_HTTPS") or True)
 BACKEND_HOST = os.getenv("BACKEND_HOST") or MY_IP
 BACKEND_PORT = int(os.getenv("BACKEND_PORT") or "443")
 
-def serve(app, port=BACKEND_PORT, use_ssl=BACKEND_HTTPS, keyfile=SERVER_KEY, certfile=SERVER_CRT):
+def serve(backend, port=BACKEND_PORT, use_ssl=BACKEND_HTTPS, keyfile=SERVER_KEY, certfile=SERVER_CRT):
     if use_ssl:
         if not (keyfile and certfile):
             raise Exception("Please provide keyfile and certfile to serve with use_ssl")
@@ -83,9 +83,12 @@ def serve(app, port=BACKEND_PORT, use_ssl=BACKEND_HTTPS, keyfile=SERVER_KEY, cer
     print("Serving backend at port %d %s ssl" % (port, "with" if use_ssl else ""))
     http_server.serve_forever()
 
-def main():
+def init_all():
     init(backend)
     init_frontend(backend, backend_https=BACKEND_HTTPS, backend_host=BACKEND_HOST, backend_port=BACKEND_PORT)
+
+def main():
+    init_all()
     serve(backend)
 
 if __name__ == "__main__":

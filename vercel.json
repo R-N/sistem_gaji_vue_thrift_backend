@@ -1,0 +1,21 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "main/wsgi.py",
+        "use": "@vercel/python",
+        "config": {
+          "excludeFiles": "/{.next,.cache,node_modules,.git,__pycache__}/**",
+          "runtime": "python3.9",
+          "analytics": true,
+          "report": true
+        }
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "main/wsgi.py"
+      }
+    ]
+  }

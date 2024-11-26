@@ -1,0 +1,15 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/static/favicon.ico"><title>frontend</title><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css"><link href="/static/css/app.7e0f6e4f.css" rel="preload" as="style"><link href="/static/css/chunk-vendors.58c17bbb.css" rel="preload" as="style"><link href="/static/js/app.21b7f972.js" rel="preload" as="script"><link href="/static/js/chunk-vendors.b7afdc99.js" rel="preload" as="script"><link href="/static/css/chunk-vendors.58c17bbb.css" rel="stylesheet"><link href="/static/css/app.7e0f6e4f.css" rel="stylesheet"></head><body><noscript><strong>We're sorry but frontend doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><script>var defaultUseHttps = true;
+			var defaultBackendHost = "localhost";
+			var defaultBackendPort = 443;
+
+			var flaskRegex = /^\{\{.*\}\}$/
+
+			var flaskUseHttps = "{{ use_https }}";
+			var flaskBackendHost = "{{ backend_host }}";
+			var flaskBackendPort = "{{ backend_port }}";
+
+			defaultUseHttps = (flaskUseHttps == '' || flaskRegex.test(flaskUseHttps)) ? defaultUseHttps : JSON.parse(flaskUseHttps.toLowerCase());
+			defaultBackendHost = (flaskBackendHost == '' || flaskRegex.test(flaskBackendHost)) ? defaultBackendHost : flaskBackendHost;
+			defaultBackendPort = (flaskBackendPort == '' || flaskRegex.test(flaskBackendPort)) ? defaultBackendPort : parseInt(flaskBackendPort);
+
+			var defaultBackendUrl = (defaultUseHttps ? "https://" : "http://") + defaultBackendHost + ":" + defaultBackendPort;</script><div id="app"></div><script src="/static/js/chunk-vendors.b7afdc99.js"></script><script src="/static/js/app.21b7f972.js"></script></body></html>

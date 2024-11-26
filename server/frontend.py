@@ -18,7 +18,7 @@ def get_ip():
         s.close()
     return IP
 
-frontend = Flask("sistem_gaji_frontend", template_folder='frontend', static_folder='frotnend/static')
+frontend = Flask("sistem_gaji_frontend", template_folder='frontend', static_folder='frontend/static')
 
 MY_IP = get_ip()
 BACKEND_HTTPS = bool(os.getenv("BACKEND_HTTPS") or True)
@@ -49,7 +49,7 @@ def init(app, backend_https=BACKEND_HTTPS, backend_host=BACKEND_HOST, backend_po
 
 DEFAULT_FRONTEND_PORT = int(os.getenv("FRONTEND_PORT") or "80")
 
-def serve(app, port=DEFAULT_FRONTEND_PORT):
+def serve(frontend, port=DEFAULT_FRONTEND_PORT):
     http_server = WSGIServer(('', port), frontend)
     http_server.serve_forever()
 

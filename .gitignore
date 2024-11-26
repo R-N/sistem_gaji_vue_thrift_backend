@@ -132,8 +132,8 @@ venv
 *.pyc
 .env
 venv/
-rpc/gen/*
-frontend/*
+#rpc/gen/*
+#frontend/*
 
 scratchpad.py
 playground.py
